@@ -1,0 +1,109 @@
+---
+title: "2023 Apartment Builings Evaluations Analysis in the City of Toronto "
+author: 
+  - Yuechen Zhang
+thanks: "Code and data are available at: LINK."
+date: 09-21-2024
+date-format: long
+abstract: "In this report, the geographic location, temporal information and evaluation of several aspects of the property's condition provided in the data allow us to learn detailed information about the property's assessed condition, which can be used to identify the condition of the flat, assess maintenance and other needs."
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+
+```
+
+
+After loading the dataset using the R programming language [@citeR], the `tidyverse` [@citetidyverse] package was used to generate graphs. In doing so, R code was adapted from @tellingstorieswithdata.
+
+# Introduction
+
+The city's condo market also reflects its level of development and internationalization. When evaluating a Toronto condo building, several key factors must be considered to ensure a full understanding of its value and suitability for potential residents or investors and builders.
+
+With the rapid growth of urban populations, the quality of amenities, safety and other aspects of the living environment in apartment buildings has become a key concern.[@zhong2023high] The housing quality and maintenance of flats is a key factor in the safety and well-being of the people living in a community in a city.
+
+A full understanding of the current state of residential buildings is therefore critical for city residents, builders and government housing authorities. The data presented in this report provides a comprehensive assessment of Toronto's condominium residential buildings, reflecting a variety of indicators of the current condition and management of these properties.
+
+By examining several factor factors in the article's charts and graphs, the report not only provides potential buyers and investors with insights into the nuances of Toronto condo units, but also provides an important resource for city planners and policy makers.
+
+
+
+# Data {#sec-data}
+
+
+```{r}
+#| echo: false
+
+library(ggplot2)
+
+# Load the data
+data <- read.csv("/Users/zhangyuechen/Downloads/1.csv")
+
+ggplot(data, aes(x = LONGITUDE, y = LATITUDE)) +
+  geom_point() +
+  labs(title = "Scatter Plot of Latitude vs. Longitude", x = "Longitude", y = "Latitude")
+```
+
+Specific assessments of different conditions, including geographic information,and so on are included in the dataset.Housing preferences are critical to home-buying choices and are influenced by a variety of factors. The motto of the real estate industry, ‘location, location, location’, is far-reaching, influencing the success of housing projects and generating highly profitable returns.[@hassan2023importance]
+
+As you can see from the chart, most of Toronto's recorded condos are also clustered between largely similar latitudes and longitudes. This means that this location received favour among condos built in those years. The location of the building does not mean that the area is in an absolutely prosperous location, it may be the public facilities around the building, such as transport stops, hospitals and other amenities that are relevant to people's lives. It has also been mentioned in articles examining home prices and location that if the actual price level of the neighbourhood is partly driven by proximity to places like the underground, as some homes may be only a few steps away while others may be so far away that the underground is considered a sub-optimal commuting option.[@heyman2019house] This shows the importance of location in people's assessment of housing.
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+ggplot(data, aes(x = YEAR.BUILT)) +
+  geom_histogram(binwidth = 5, fill = "red", color = "black") +
+  labs(title = "Histogram of Year Built", x = "Year Built", y = "Frequency")
+
+```
+
+The year a building was constructed is a key factor in its evaluation. Older buildings constructed many years ago will usually have stronger structures and more living space than newer flats in recent years. However, these buildings also face maintenance issues such as infrastructure that may need to be upgraded.These older buildings, while offering the advantages of solid construction and more spacious living spaces, often require significant investment in modernisation to meet current safety standards and the expectations of today's residents.The concentration of condominium buildings between 1950 and 1990 highlights the ageing nature of much of Toronto's housing stock.
+
+As you can clearly see from the charts made from the data, the years of construction of the condominiums are concentrated between 1950-1990, which means that the buildings are older as of today. In 2008, Toronto launched a new Renewal Opportunities Handbook, which outlines the basic assessment process and improvement options for aging buildings.[ @mcclelland2011reassessing]. This all-encompassing renewal and maintenance programme has brought new life to the apartment.
+
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+ggplot(data, aes(x = PROPERTY.TYPE)) +
+  geom_bar(fill = "yellow") +
+  labs(title = "Bar Plot of Property Type", x = "Property Type", y = "Count")
+```
+Toronto, as Canada's most populous city, is predicted to be home to more than 3.9 million people (Government of Ontario, 2021). As the city continues to become more densely populated, this means that Toronto's housing projects will be multi-unit residential buildings.[@ouyangcomparing] The ownership type of the homes is defined as being Private, so as you can see in the bar chart, Private types make up the vast majority of the Toronto area.
+
+Unlike housing that is privately owned, TCHC is a public agency responsible for providing affordable housing to low and moderate income residents of Toronto. The primary purpose of these flats is to subsidise those who cannot afford market-rate housing and to ensure that all residents have access to safe and stable living conditions.
+
+# Discussion
+
+
+Condo building appraisal reports play a crucial role in guiding potential residents, investors, and developers in making informed decisions. For prospective homeowners, understanding the year of construction can help anticipate future maintenance requirements and assess whether the available living space meets their needs. Similarly, the building’s location is a significant determinant of the lifestyle it can offer, influencing factors such as proximity to work, schools, public transportation, and recreational amenities. The type of property further refines the living experience, often reflecting the preferences and expectations of the target demographic, whether it’s young professionals, families, or retirees.
+
+Access to clearly documented data on these attributes is essential not only for individuals seeking a home but also for government agencies and builders who rely on accurate information to plan and develop urban spaces effectively. Such data enables a more streamlined home-finding process, allowing buyers to quickly identify properties that align with their requirements. For builders and urban planners, this information is invaluable in identifying areas for development or renewal, ensuring that new projects are well-suited to the demands of the market. As the city continues to evolve, the availability and use of detailed condo appraisal reports will be increasingly important in fostering sustainable urban growth and meeting the diverse needs of Toronto’s population.
+
+
+
+## Weaknesses and next steps
+
+If there are shortcomings that exist, then I think the search could be made more detailed and expand the scope of the survey. For example, there are a lot of new flats built in the last two years that don't seem to be counted in the register. Often these new flats are also the key targets for people to focus on.
+The next enhancement could be to add more proximity to the assessment indicators. Although the indicators in the data are already detailed, the data could be updated in real time. This would provide more insight into the current state of urban housing quality.
+
+
+\newpage
+
+
+# References
+
+
