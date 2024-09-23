@@ -1,5 +1,5 @@
 ---
-title: "2023 Apartment Builings Evaluations Analysis in the City of Toronto "
+title: "2023 Apartment Buildings Evaluations Analysis in the City of Toronto "
 author: 
   - Yuechen Zhang
 thanks: "Code and data are available at: LINK."
