@@ -18,7 +18,7 @@ The repo is structured as:
 
 ## Statement on LLM usage
 
-Aspects of the code were written with the help of the chat tool, Chat-GPT. The words parts of introduction and anlysis for graohs also were written with the help of Chat-GPT and the entire chat history is available in other/llm/usage.txt.
+Aspects of the code were written with the help of the chat tool, Chat-GPT. Parts of the words for introduction and anlysis of graphs also were written with the help of Chat-GPT and the entire chat history is available in other/llm/usage.txt.
 
 ## Some checks
 
