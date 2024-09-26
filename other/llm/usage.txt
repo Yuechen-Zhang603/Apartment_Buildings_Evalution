@@ -373,3 +373,44 @@ By examining the data presented in the report’s charts and graphs, potential b
 ---
 
 This version is structured to meet the specified criteria, ensuring that the reader understands the broader context, the research gap, the significance of the findings, and the overall structure of the paper.
+
+
+User
+write aKable of the first 5 column of this data set, show me the r code
+ChatGPT
+Here's the R code to create a kable (a nicely formatted table) of the first 5 columns of the dataset:
+
+```r
+# Load necessary libraries
+library(readr)
+library(knitr)
+
+# Load the dataset
+data <- read_csv("path/to/your/analysis_data.csv")
+
+# Select the first 5 columns
+data_subset <- data[, 1:5]
+
+# Display the first few rows as a kable
+kable(head(data_subset))
+```
+
+### Key Points:
+- **Replace `"path/to/your/analysis_data.csv"`** with the actual path to your CSV file.
+- This code uses the `knitr` package to create a table (`kable`) from the first 5 columns of your dataset.
+
+You can run this code in an R environment, and it will display a nicely formatted table of the first 5 columns.
+
+User
+About Apartment Building Evaluation
+
+RentSafeTO: Apartment Building Standards is a bylaw enforcement program established in 2017 to ensure that owners and operators of apartment buildings with three or more storeys or 10 or more units comply with building maintenance standards.   Learn more about RentSafeTO.
+
+This dataset contains building evaluation scores for buildings registered with RentSafeTO.   During evaluations, Bylaw Enforcement Officers inspect common areas, mechanical and security systems, parking and exterior grounds.
+
+In 2023, RentsafeTO updated its evaluation process.   Buildings must undergo evaluation at least once every two years, increasing the number of evaluation categories to 50 and allocating a weight to the category.  -------Rewrite this paragraph and make it concise.
+
+ChatGPT
+RentSafeTO: Apartment Building Standards is a bylaw enforcement program launched in 2017 to ensure that apartment buildings with three or more storeys or 10 or more units meet required maintenance standards. This dataset includes evaluation scores for buildings registered with RentSafeTO, based on inspections of common areas, mechanical systems, security, parking, and exterior grounds.
+
+In 2023, RentSafeTO updated its evaluation process, requiring buildings to be assessed at least once every two years. The number of evaluation categories was increased to 50, with each category now assigned a specific weight.

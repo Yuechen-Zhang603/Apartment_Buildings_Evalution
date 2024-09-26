@@ -41,6 +41,25 @@ Overview:
 
 The dataset used in this analysis is from the condominium building assessments available in OpenDataToronto. Ontario's recording provisions for condominium buildings include a number of aspects that govern the construction, maintenance, and management of condominium buildings. The variables or measurements included in this analysis are: ‘Latitude and Longitude’, in this case the geographic location of the apartment buildings; ‘YEAR BULIT’, which refers to when the apartment building was constructed; and ‘Property TYPE’, which refers to the categorization of the apartment building according to its primary use.
 
+# Measurement
+The Dataset Institute Counts Apartment Building Standards is an enforcement project initiated in 2017 to ensure that apartment buildings with three or more floors or 10 or more units meet required maintenance standards. Based on inspections of common areas, mechanical systems, security, parking and exterior grounds.[@citeopendatatoronto]
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(readr)
+library(knitr)
+
+data <- read_csv("/Users/zhangyuechen/Desktop/abc/paper/inputs/data/analysis_data.csv")
+
+data_subset <- data[, 1:5]
+
+
+kable(head(data_subset))
+
+```
+
 
 \newpage
 
