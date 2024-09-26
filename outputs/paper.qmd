@@ -53,7 +53,7 @@ The dataset used in this analysis is from the condominium building assessments a
 library(ggplot2)
 
 # Load the data
-data <- read.csv("/Users/zhangyuechen/Downloads/1.csv")
+data <- read.csv("/Users/zhangyuechen/Desktop/abc/paper/inputs/data/analysis_data.csv")
 
 ggplot(data, aes(x = LONGITUDE, y = LATITUDE)) +
   geom_point() +

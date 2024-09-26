@@ -51,7 +51,7 @@ cleaned_data <- cleaned_data %>%
   select(-starts_with('...'), -starts_with('X'))
 
 
-write_csv(cleaned_data, "/Users/zhangyuechen/Desktop/abc/paper/data/cleaned_data.csv")
+write_csv(cleaned_data, "/Users/zhangyuechen/Desktop/abc/paper/data/analysis_data.csv")
 
 # Optional: Preview the cleaned data
 head(cleaned_data)
