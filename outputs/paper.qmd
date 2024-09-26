@@ -5,7 +5,7 @@ author:
 thanks: "Code and data are available at: https://github.com/Yuechen-Zhang603/Apartment_Buildings_Evalution.git."
 date: 09-25-2024
 date-format: long
-abstract: "In this report, the geographic location, temporal information and evaluation of several aspects of the property's condition provided in the data allow us to learn detailed information about the property's assessed condition, which can be used to identify the condition of the flat, assess maintenance and other needs."
+abstract: "In this report, the geographic location, temporal information provided by the information, and the assessment of several aspects of the condition of the property allowed us to understand the detailed information on the assessed condition of the property in order to determine the condition of the units, assess repairs, and other needs. This is vital for residents as it affects people's property choices and the direction of government policy, amongst other things."
 format: pdf
 number-sections: true
 bibliography: references.bib
