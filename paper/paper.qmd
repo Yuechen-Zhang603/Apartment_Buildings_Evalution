@@ -2,8 +2,8 @@
 title: "2023 Apartment Buildings Evaluations Analysis in the City of Toronto "
 author: 
   - Yuechen Zhang
-thanks: "Code and data are available at: LINK."
-date: 09-21-2024
+thanks: "Code and data are available at: https://github.com/Yuechen-Zhang603/Apartment_Buildings_Evalution.git."
+date: 09-25-2024
 date-format: long
 abstract: "In this report, the geographic location, temporal information and evaluation of several aspects of the property's condition provided in the data allow us to learn detailed information about the property's assessed condition, which can be used to identify the condition of the flat, assess maintenance and other needs."
 format: pdf
@@ -37,9 +37,18 @@ By examining several factor factors in the article's charts and graphs, the repo
 
 # Data {#sec-data}
 
+Overview:
+
+The dataset used in this analysis is from the condominium building assessments available in OpenDataToronto. Ontario's recording provisions for condominium buildings include a number of aspects that govern the construction, maintenance, and management of condominium buildings. The variables or measurements included in this analysis are: ‘Latitude and Longitude’, in this case the geographic location of the apartment buildings; ‘YEAR BULIT’, which refers to when the apartment building was constructed; and ‘Property TYPE’, which refers to the categorization of the apartment building according to its primary use.
+
+
+
+
 
 ```{r}
 #| echo: false
+#| label: fig-Apartments-Spatial-Distribution
+#| fig-cap: Geographical Distribution of Toronto Apartment Buildings Based on Latitude and Longitude
 
 library(ggplot2)
 
@@ -48,12 +57,17 @@ data <- read.csv("/Users/zhangyuechen/Downloads/1.csv")
 
 ggplot(data, aes(x = LONGITUDE, y = LATITUDE)) +
   geom_point() +
-  labs(title = "Scatter Plot of Latitude vs. Longitude", x = "Longitude", y = "Latitude")
+  labs(x = "Longitude", y = "Latitude")
 ```
+
+
+This dispersion map represents the geographic distribution of Toronto apartment buildings based on their latitude and longitude coordinates. Each point on the plot corresponds to an apartment building, with the x-axis representing longitude and the y-axis representing latitude.The geographic distribution is concentrated in a latitude range of approximately 43.60 to 43.80 and a longitude range of approximately -79.6 to -79.2. The plot shows that condominium buildings are concentrated in this particular latitude and longitude range, which is indicative of dense residential construction in these areas, condominiums in Toronto are concentrated in certain neighbourhoods, which may reflect the density of the city.
 
 Specific assessments of different conditions, including geographic information,and so on are included in the dataset.Housing preferences are critical to home-buying choices and are influenced by a variety of factors. The motto of the real estate industry, ‘location, location, location’, is far-reaching, influencing the success of housing projects and generating highly profitable returns.[@hassan2023importance]
 
-As you can see from the chart, most of Toronto's recorded condos are also clustered between largely similar latitudes and longitudes. This means that this location received favour among condos built in those years. The location of the building does not mean that the area is in an absolutely prosperous location, it may be the public facilities around the building, such as transport stops, hospitals and other amenities that are relevant to people's lives. It has also been mentioned in articles examining home prices and location that if the actual price level of the neighbourhood is partly driven by proximity to places like the underground, as some homes may be only a few steps away while others may be so far away that the underground is considered a sub-optimal commuting option.[@heyman2019house] This shows the importance of location in people's assessment of housing.
+The location of the building does not mean that the area is in an absolutely prosperous location, it may be the public facilities around the building, such as transport stops, hospitals and other amenities that are relevant to people's lives. It has also been mentioned in articles examining home prices and location that if the actual price level of the neighbourhood is partly driven by proximity to places like the underground, as some homes may be only a few steps away while others may be so far away that the underground is considered a sub-optimal commuting option.[@heyman2019house] This shows the importance of location in people's assessment of housing.
+
+
 
 
 
@@ -61,16 +75,23 @@ As you can see from the chart, most of Toronto's recorded condos are also cluste
 #| echo: false
 #| warning: false
 #| message: false
+#| label: fig-Apartments-Year-of-Building
+#| fig-cap: Distribution of Apartment Buildings in Toronto by Year of Construction
 
 ggplot(data, aes(x = YEAR.BUILT)) +
   geom_histogram(binwidth = 5, fill = "red", color = "black") +
-  labs(title = "Histogram of Year Built", x = "Year Built", y = "Frequency")
+  labs(x = "Year Built", y = "Frequency")
 
 ```
 
-The year a building was constructed is a key factor in its evaluation. Older buildings constructed many years ago will usually have stronger structures and more living space than newer flats in recent years. However, these buildings also face maintenance issues such as infrastructure that may need to be upgraded.These older buildings, while offering the advantages of solid construction and more spacious living spaces, often require significant investment in modernisation to meet current safety standards and the expectations of today's residents.The concentration of condominium buildings between 1950 and 1990 highlights the ageing nature of much of Toronto's housing stock.
 
-As you can clearly see from the charts made from the data, the years of construction of the condominiums are concentrated between 1950-1990, which means that the buildings are older as of today. In 2008, Toronto launched a new Renewal Opportunities Handbook, which outlines the basic assessment process and improvement options for aging buildings.[ @mcclelland2011reassessing]. This all-encompassing renewal and maintenance programme has brought new life to the apartment.
+This histogram represents the distribution of Toronto's condominium buildings based on the year in which they were constructed. the x-axis represents the years from the early 1800s to the 21st century, while the y-axis represents the frequency of buildings constructed during each period. The histogram clearly shows that the most important period of condominium building construction in Toronto occurred around the 1950s. The peak is centered on this decade and the frequency of buildings constructed during this period is very high. Urban planners and developers may use this information to understand the aging of Toronto's condominium inventory, particularly the concentration of 1950s-era buildings that may now be in need of significant maintenance or redevelopment.
+
+The year a building was constructed is a key factor in its evaluation. Older buildings constructed many years ago will usually have stronger structures and more living space than newer flats in recent years. However, these buildings also face maintenance issues such as infrastructure that may need to be upgraded.These older buildings, while offering the advantages of solid construction and more spacious living spaces, often require significant investment in modernisation to meet current safety standards and the expectations of today's residents.
+
+The concentration of condominium buildings between 1950 and 1990 highlights the ageing nature of much of Toronto's housing stock.In 2008, Toronto launched a new Renewal Opportunities Handbook, which outlines the basic assessment process and improvement options for aging buildings.[ @mcclelland2011reassessing]. This all-encompassing renewal and maintenance programme has brought new life to the apartment.
+
+
 
 
 
@@ -78,18 +99,27 @@ As you can clearly see from the charts made from the data, the years of construc
 #| echo: false
 #| warning: false
 #| message: false
+#| label: fig-Apartments-Property-Type
+#| fig-cap: Distribution of Toronto Apartment Buildings by Property Type
 ggplot(data, aes(x = PROPERTY.TYPE)) +
   geom_bar(fill = "yellow") +
-  labs(title = "Bar Plot of Property Type", x = "Property Type", y = "Count")
+  labs(x = "Property Type", y = "Count")
 ```
-Toronto, as Canada's most populous city, is predicted to be home to more than 3.9 million people (Government of Ontario, 2021). As the city continues to become more densely populated, this means that Toronto's housing projects will be multi-unit residential buildings.[@ouyangcomparing] The ownership type of the homes is defined as being Private, so as you can see in the bar chart, Private types make up the vast majority of the Toronto area.
 
-Unlike housing that is privately owned, TCHC is a public agency responsible for providing affordable housing to low and moderate income residents of Toronto. The primary purpose of these flats is to subsidise those who cannot afford market-rate housing and to ensure that all residents have access to safe and stable living conditions.
 
-# Discussion
+This bar chart represents the distribution of Toronto's apartment buildings by property type. the x-axis lists the different property types, while the y-axis shows the number of buildings in each category. The most attractive feature of the chart compared to other property types is the large number of private apartment buildings. The number of private properties exceeds 2,000, making it the most common type of condo building in Toronto. This indicates that the majority of Toronto's apartment buildings are privately owned, which is typical of a real estate market that is largely driven by private investors and developers. Toronto, as Canada's most populous city, is predicted to be home to more than 3.9 million people (Government of Ontario, 2021). As the city continues to become more densely populated, this means that Toronto's housing projects will be multi-unit residential buildings.[@ouyangcomparing] The ownership type of the homes is defined as being Private, so as you can see in the bar chart, Private types make up the vast majority of the Toronto area.
 
+The bar representing social housing is significantly smaller than the bar for private property, indicating that there are far fewer buildings dedicated to this type of housing. Social housing typically refers to government or non-profit managed housing designed to provide affordable living options for low-income residents. The relatively small number of social housing buildings may indicate that the limited supply of affordable housing in Toronto requires further government attention.
+
+Unlike housing that is privately owned, TCHC is a public agency responsible for providing affordable housing to low and moderate income residents of Toronto. The primary purpose of these flats is to subsidise those who cannot afford market-rate housing and to ensure that all residents have access to safe and stable living conditions. Facing the same situation as social housing, TCHC housing also has a huge gap with private property, meaning that the Toronto government needs to put more effort into addressing issues regarding housing for low-income residents.
+
+# Discussion {#sec-discussion}
+
+## Key Factors in Condo Building Appraisal Reports: A Guide for Residents, Investors, and Developers {#sec-first-point}
 
 Condo building appraisal reports play a crucial role in guiding potential residents, investors, and developers in making informed decisions. For prospective homeowners, understanding the year of construction can help anticipate future maintenance requirements and assess whether the available living space meets their needs. Similarly, the building’s location is a significant determinant of the lifestyle it can offer, influencing factors such as proximity to work, schools, public transportation, and recreational amenities. The type of property further refines the living experience, often reflecting the preferences and expectations of the target demographic, whether it’s young professionals, families, or retirees.
+
+## The Importance of Detailed Condo Appraisal Reports in Sustainable Urban Planning and Development
 
 Access to clearly documented data on these attributes is essential not only for individuals seeking a home but also for government agencies and builders who rely on accurate information to plan and develop urban spaces effectively. Such data enables a more streamlined home-finding process, allowing buyers to quickly identify properties that align with their requirements. For builders and urban planners, this information is invaluable in identifying areas for development or renewal, ensuring that new projects are well-suited to the demands of the market. As the city continues to evolve, the availability and use of detailed condo appraisal reports will be increasingly important in fostering sustainable urban growth and meeting the diverse needs of Toronto’s population.
 
@@ -98,7 +128,22 @@ Access to clearly documented data on these attributes is essential not only for 
 ## Weaknesses and next steps
 
 If there are shortcomings that exist, then I think the search could be made more detailed and expand the scope of the survey. For example, there are a lot of new flats built in the last two years that don't seem to be counted in the register. Often these new flats are also the key targets for people to focus on.
+
 The next enhancement could be to add more proximity to the assessment indicators. Although the indicators in the data are already detailed, the data could be updated in real time. This would provide more insight into the current state of urban housing quality.
+
+\newpage
+
+
+# Appendix {#sec-appendix}
+
+## Dataset and Graph Sketches {#sec-appendix-sketches}
+
+The raw dataset of data and sketches of the graphs generated in the analysis are available in this GitHub Repository.
+
+## Data Cleaning {#sec-appendix-cleaning}
+
+The data cleaning process involved filtering out some of the columns from the raw dataset and renaming some of the data entries for clarity and simplicity.
+
 
 
 \newpage
