@@ -25,13 +25,13 @@ After loading the dataset using the R programming language [@citeR], the `tidyve
 
 # Introduction
 
-The city's condo market also reflects its level of development and internationalization. When evaluating a Toronto condo building, several key factors must be considered to ensure a full understanding of its value and suitability for potential residents or investors and builders.
+The apartment market in Toronto is a critical reflection of the city's level of development and its position on the global stage. As urban populations continue to grow rapidly, understanding the value and suitability of condo buildings is essential for potential residents, investors, builders, and policymakers. This evaluation requires a comprehensive analysis of several key factors, including the quality of amenities, safety standards, and the overall living environment within these residential buildings.
 
-With the rapid growth of urban populations, the quality of amenities, safety and other aspects of the living environment in apartment buildings has become a key concern.[@zhong2023high] The housing quality and maintenance of flats is a key factor in the safety and well-being of the people living in a community in a city.
+With the rapid growth of urban populations, the quality of amenities, safety and other aspects of the living environment in apartment buildings has become a key concern.[@zhong2023high] In recent years, the quality of housing and maintenance of apartment buildings has become increasingly important as these factors directly impact the safety, well-being, and satisfaction of city dwellers. As cities like Toronto expand, ensuring that residential buildings meet high standards is not only a matter of individual comfort but also a broader concern for community safety and urban livability. 
 
-A full understanding of the current state of residential buildings is therefore critical for city residents, builders and government housing authorities. The data presented in this report provides a comprehensive assessment of Toronto's condominium residential buildings, reflecting a variety of indicators of the current condition and management of these properties.
+This report addresses a critical gap in the understanding of Toronto's condominium landscape by offering a detailed assessment of the current state of these residential buildings. Through the analysis of various indicators, including maintenance quality, safety features, and management practices, this report provides valuable insights for a wide audience, including city residents, builders, government housing authorities, and urban planners.
 
-By examining several factor factors in the article's charts and graphs, the report not only provides potential buyers and investors with insights into the nuances of Toronto condo units, but also provides an important resource for city planners and policy makers.
+By examining the data presented in the report’s charts and graphs, potential buyers and investors will gain a deeper understanding of the nuances of Toronto’s condo units. Moreover, this report serves as an essential resource for city planners and policymakers, offering data-driven insights that can inform future housing strategies and urban development plans. The structure of this paper will guide the reader through these analyses, ultimately demonstrating why these findings are not only relevant but crucial for the sustainable growth of Toronto’s apartment market.
 
 
 
@@ -42,8 +42,7 @@ Overview:
 The dataset used in this analysis is from the condominium building assessments available in OpenDataToronto. Ontario's recording provisions for condominium buildings include a number of aspects that govern the construction, maintenance, and management of condominium buildings. The variables or measurements included in this analysis are: ‘Latitude and Longitude’, in this case the geographic location of the apartment buildings; ‘YEAR BULIT’, which refers to when the apartment building was constructed; and ‘Property TYPE’, which refers to the categorization of the apartment building according to its primary use.
 
 
-
-
+\newpage
 
 ```{r}
 #| echo: false
@@ -85,6 +84,8 @@ ggplot(data, aes(x = YEAR.BUILT)) +
 ```
 
 
+
+
 This histogram represents the distribution of Toronto's condominium buildings based on the year in which they were constructed. the x-axis represents the years from the early 1800s to the 21st century, while the y-axis represents the frequency of buildings constructed during each period. The histogram clearly shows that the most important period of condominium building construction in Toronto occurred around the 1950s. The peak is centered on this decade and the frequency of buildings constructed during this period is very high. Urban planners and developers may use this information to understand the aging of Toronto's condominium inventory, particularly the concentration of 1950s-era buildings that may now be in need of significant maintenance or redevelopment.
 
 The year a building was constructed is a key factor in its evaluation. Older buildings constructed many years ago will usually have stronger structures and more living space than newer flats in recent years. However, these buildings also face maintenance issues such as infrastructure that may need to be upgraded.These older buildings, while offering the advantages of solid construction and more spacious living spaces, often require significant investment in modernisation to meet current safety standards and the expectations of today's residents.
@@ -107,11 +108,16 @@ ggplot(data, aes(x = PROPERTY.TYPE)) +
 ```
 
 
+
+
 This bar chart represents the distribution of Toronto's apartment buildings by property type. the x-axis lists the different property types, while the y-axis shows the number of buildings in each category. The most attractive feature of the chart compared to other property types is the large number of private apartment buildings. The number of private properties exceeds 2,000, making it the most common type of condo building in Toronto. This indicates that the majority of Toronto's apartment buildings are privately owned, which is typical of a real estate market that is largely driven by private investors and developers. Toronto, as Canada's most populous city, is predicted to be home to more than 3.9 million people (Government of Ontario, 2021). As the city continues to become more densely populated, this means that Toronto's housing projects will be multi-unit residential buildings.[@ouyangcomparing] The ownership type of the homes is defined as being Private, so as you can see in the bar chart, Private types make up the vast majority of the Toronto area.
 
 The bar representing social housing is significantly smaller than the bar for private property, indicating that there are far fewer buildings dedicated to this type of housing. Social housing typically refers to government or non-profit managed housing designed to provide affordable living options for low-income residents. The relatively small number of social housing buildings may indicate that the limited supply of affordable housing in Toronto requires further government attention.
 
 Unlike housing that is privately owned, TCHC is a public agency responsible for providing affordable housing to low and moderate income residents of Toronto. The primary purpose of these flats is to subsidise those who cannot afford market-rate housing and to ensure that all residents have access to safe and stable living conditions. Facing the same situation as social housing, TCHC housing also has a huge gap with private property, meaning that the Toronto government needs to put more effort into addressing issues regarding housing for low-income residents.
+
+
+\newpage
 
 # Discussion {#sec-discussion}
 
