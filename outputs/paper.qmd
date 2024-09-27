@@ -21,7 +21,6 @@ library(tidyverse)
 ```
 
 
-After loading the dataset using the R programming language [@citeR], the `tidyverse` [@citetidyverse] package was used to generate graphs. In doing so, R code was adapted from @tellingstorieswithdata.
 
 # Introduction
 
@@ -41,12 +40,15 @@ Overview:
 
 The dataset used in this analysis is from the condominium building assessments available in OpenDataToronto. Ontario's recording provisions for condominium buildings include a number of aspects that govern the construction, maintenance, and management of condominium buildings. The variables or measurements included in this analysis are: ‘Latitude and Longitude’, in this case the geographic location of the apartment buildings; ‘YEAR BULIT’, which refers to when the apartment building was constructed; and ‘Property TYPE’, which refers to the categorization of the apartment building according to its primary use.
 
+After loading the dataset using the R programming language [@citeR], the `tidyverse` [@citetidyverse] package was used to generate graphs. In doing so, R code was adapted from @tellingstorieswithdata.
+
 # Measurement
 The Dataset Institute Counts Apartment Building Standards is an enforcement project initiated in 2017 to ensure that apartment buildings with three or more floors or 10 or more units meet required maintenance standards. Based on inspections of common areas, mechanical systems, security, parking and exterior grounds.[@citeopendatatoronto]
 ```{r}
 #| echo: false
 #| warning: false
 #| message: false
+#| tbl-cap: Sample of cleaned data
 
 library(readr)
 library(knitr)
@@ -55,8 +57,12 @@ data <- read_csv("/Users/zhangyuechen/Desktop/abc/paper/inputs/data/analysis_dat
 
 data_subset <- data[, 1:5]
 
-
-kable(head(data_subset))
+# Display the first 6 rows in a kable format
+head(data_subset, 6) |>
+  kable(
+    col.names = c("RSN", "YEAR.REGISTERED", "YEAR.BUILT", "YEAR.EVALUATED", "PROPERTY.TYPE"),
+    booktabs = TRUE
+  )
 
 ```
 
@@ -72,12 +78,12 @@ library(ggplot2)
 
 # Load the data
 data <- read.csv("/Users/zhangyuechen/Desktop/abc/paper/inputs/data/analysis_data.csv")
-
+#Scatter plot for two variables---LONGITUDE and LATITUDE
 ggplot(data, aes(x = LONGITUDE, y = LATITUDE)) +
   geom_point() +
   labs(x = "Longitude", y = "Latitude")
 ```
-
+[@fig-Apartments-Spatial-Distribution]
 
 This dispersion map represents the geographic distribution of Toronto apartment buildings based on their latitude and longitude coordinates. Each point on the plot corresponds to an apartment building, with the x-axis representing longitude and the y-axis representing latitude.The geographic distribution is concentrated in a latitude range of approximately 43.60 to 43.80 and a longitude range of approximately -79.6 to -79.2. The plot shows that condominium buildings are concentrated in this particular latitude and longitude range, which is indicative of dense residential construction in these areas, condominiums in Toronto are concentrated in certain neighbourhoods, which may reflect the density of the city.
 
@@ -95,15 +101,14 @@ The location of the building does not mean that the area is in an absolutely pro
 #| message: false
 #| label: fig-Apartments-Year-of-Building
 #| fig-cap: Distribution of Apartment Buildings in Toronto by Year of Construction
-
+# Plot 2: Histogram of a single variable---YEAR.BUILT
 ggplot(data, aes(x = YEAR.BUILT)) +
   geom_histogram(binwidth = 5, fill = "red", color = "black") +
   labs(x = "Year Built", y = "Frequency")
 
 ```
 
-
-
+[@fig-Apartments-Year-of-Building]
 
 This histogram represents the distribution of Toronto's condominium buildings based on the year in which they were constructed. the x-axis represents the years from the early 1800s to the 21st century, while the y-axis represents the frequency of buildings constructed during each period. The histogram clearly shows that the most important period of condominium building construction in Toronto occurred around the 1950s. The peak is centered on this decade and the frequency of buildings constructed during this period is very high. Urban planners and developers may use this information to understand the aging of Toronto's condominium inventory, particularly the concentration of 1950s-era buildings that may now be in need of significant maintenance or redevelopment.
 
@@ -121,13 +126,13 @@ The concentration of condominium buildings between 1950 and 1990 highlights the 
 #| message: false
 #| label: fig-Apartments-Property-Type
 #| fig-cap: Distribution of Toronto Apartment Buildings by Property Type
+#Line plot over time with two varibles---Property and Count
 ggplot(data, aes(x = PROPERTY.TYPE)) +
   geom_bar(fill = "yellow") +
   labs(x = "Property Type", y = "Count")
 ```
 
-
-
+[@fig-Apartments-Property-Type]
 
 This bar chart represents the distribution of Toronto's apartment buildings by property type. the x-axis lists the different property types, while the y-axis shows the number of buildings in each category. The most attractive feature of the chart compared to other property types is the large number of private apartment buildings. The number of private properties exceeds 2,000, making it the most common type of condo building in Toronto. This indicates that the majority of Toronto's apartment buildings are privately owned, which is typical of a real estate market that is largely driven by private investors and developers. Toronto, as Canada's most populous city, is predicted to be home to more than 3.9 million people (Government of Ontario, 2021). As the city continues to become more densely populated, this means that Toronto's housing projects will be multi-unit residential buildings.[@ouyangcomparing] The ownership type of the homes is defined as being Private, so as you can see in the bar chart, Private types make up the vast majority of the Toronto area.
 
