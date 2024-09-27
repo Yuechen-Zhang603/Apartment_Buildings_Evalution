@@ -16,7 +16,10 @@ bibliography: references.bib
 #| warning: false
 #| message: false
 
+#install.packages("tidyverse")
+#install.packages("here")
 library(tidyverse)
+library(here)
 
 ```
 
@@ -53,7 +56,7 @@ The Dataset Institute Counts Apartment Building Standards is an enforcement proj
 library(readr)
 library(knitr)
 
-data <- read_csv("/Users/zhangyuechen/Desktop/abc/paper/inputs/data/analysis_data.csv")
+data <- read_csv(here::here("inputs/data/analysis_data.csv"))
 
 data_subset <- data[, 1:5]
 
@@ -76,8 +79,6 @@ head(data_subset, 6) |>
 
 library(ggplot2)
 
-# Load the data
-data <- read.csv("/Users/zhangyuechen/Desktop/abc/paper/inputs/data/analysis_data.csv")
 #Scatter plot for two variables---LONGITUDE and LATITUDE
 ggplot(data, aes(x = LONGITUDE, y = LATITUDE)) +
   geom_point() +
