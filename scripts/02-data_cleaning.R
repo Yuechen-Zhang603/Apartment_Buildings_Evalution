@@ -15,7 +15,7 @@
 library(tidyverse)
 
 # Load the dataset
-raw_data <- read_csv("/Users/zhangyuechen/Desktop/abc/paper/data/raw_data.csv")
+raw_data <- read_csv("inputs/data/raw_data.csv")
 
 # Preview the data
 head(raw_data)
@@ -51,7 +51,7 @@ cleaned_data <- cleaned_data %>%
   select(-starts_with('...'), -starts_with('X'))
 
 
-write_csv(cleaned_data, "/Users/zhangyuechen/Desktop/abc/paper/data/analysis_data.csv")
+write_csv(cleaned_data, "inputs/data/analysis_data.csv")
 
 # Optional: Preview the cleaned data
 head(cleaned_data)

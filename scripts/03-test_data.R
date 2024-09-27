@@ -12,7 +12,7 @@
 library(tidyverse)
 
 # Load the dataset
-data <- read_csv("/Users/zhangyuechen/Desktop/abc/paper/data/raw_data.csv")
+data <- read_csv("inputs/data/raw_data.csv")
 
 # Check the minimum value in the YEAR.BUILT column
 min_year_built <- min(data$YEAR.BUILT, na.rm = TRUE)
@@ -28,7 +28,7 @@ if (min_year_built > 1900) {
 library(readr)
 
 # Load the dataset
-data <- read_csv("/Users/zhangyuechen/Desktop/abc/paper/data/analysis_data.csv")
+data <- read_csv("inputs/data/analysis_data.csv")
 
 # Check the minimum value in the WARD column
 min_ward <- min(data$WARD, na.rm = TRUE)
