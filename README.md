@@ -2,7 +2,7 @@
 
 ## Overview
 
-This GitHub Repository contains all files used to generate the paper ---2023 Apartment Buildings Evaluations Analysis in the City of Toronto The R code used to create this work was adapted from opendatatoronto
+This GitHub Repository contains all files used to generate the paper ---2023 Apartment Buildings Evaluations Analysis in the City of Toronto The R code used to create this work was adapted from opendatatoronto.
 
 ## File Structure
 
